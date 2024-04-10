@@ -1,0 +1,102 @@
+ [
+      {
+        "id": 1,
+        "estate_title": "Seaside Villa Retreat",
+        "segment_name": "resorts",
+        "description": "Indulge in coastal luxury at this stunning villa retreat. With panoramic views of the ocean, private beach access, and exquisite amenities, this property offers a serene escape.",
+        "price": "$7,500,000",
+        "status": "sale",
+        "area": "6000 sq ft",
+        "location": "Santa Barbara, California",
+        "facilities": ["Infinity Pool", "Private Beach Access", "Outdoor Barbecue Area", "Fitness Center"],
+        "image": "https://i.ibb.co/tc5V0fw/img1.jpg",
+        "year_built": 2015,
+        "bedrooms": 6,
+        "lot_size": "0.5 acres",
+        "ratings": 4.5
+      },
+      {
+        "id": 2,
+        "estate_title": "Urban Penthouse Living",
+        "segment_name": "hotel",
+        "description": "Experience sophisticated city living in this modern penthouse. With floor-to-ceiling windows, city skyline views, and luxury amenities, this urban oasis is perfect for cosmopolitan lifestyles.",
+        "price": "$12,000/month",
+        "status": "rent",
+        "area": "2500 sq ft",
+        "location": "Manhattan, New York",
+        "facilities": ["Roof Terrace", "Gourmet Kitchen", "Home Theater", "24/7 Concierge Service"],
+        "image": "https://i.ibb.co/17RVVC6/img2.jpg",
+        "year_built": 2018,
+        "bedrooms": 3,
+        "lot_size": "2 acres",
+        "ratings": 4
+      },
+      {
+        "id": 3,
+        "estate_title": "Rustic Countryside Estate",
+        "segment_name": "vacation rentals",
+        "description": "Escape to the countryside in this charming estate surrounded by rolling hills and lush landscapes. With rustic elegance and modern comforts, this property offers tranquility and charm.",
+        "price": "$3,200,000",
+        "status": "sale",
+        "area": "4000 sq ft",
+        "location": "Tuscany, Italy",
+        "facilities": ["Vineyard", "Swimming Pool", "Outdoor Dining Area", "Library"],
+        "image": "https://i.ibb.co/kchqCBJ/img4.jpg",
+        "year_built": 2007,
+        "bedrooms": 5,
+        "lot_size": "10 acres",
+        "ratings": 4.5
+      },
+      {
+        "id": 4,
+        "estate_title": "Mountain View Chalet",
+        "segment_name": "lodges",
+        "description": "Embrace the beauty of the mountains in this cozy chalet. With stunning views of snow-capped peaks, ski-in/ski-out access, and warm interiors, this retreat is perfect for winter getaways.",
+        "price": "$1,200/night",
+        "status": "rent",
+        "area": "1800 sq ft",
+        "location": "Chamonix, France",
+        "facilities": ["Hot Tub", "Ski-in/Ski-out Access", "Fireplace", "Game Room"],
+        "image": "https://i.ibb.co/d2NDFVd/img5.jpg",
+        "year_built": 2012,
+        "bedrooms": 4,
+        "lot_size": "2 acres",
+        "ratings": 4.5
+        
+      },
+      {
+        "id": 5,
+        "estate_title": "Lakefront Cabin Retreat",
+        "segment_name": "vacation rentals",
+        "description": "Relax in the tranquility of nature at this charming lakefront cabin. With panoramic views of the lake, private dock, and cozy interiors, this retreat offers a peaceful getaway.",
+        "price": "$500,000",
+        "status": "sale",
+        "area": "1500 sq ft",
+        "location": "Lake Tahoe, California",
+        "facilities": ["Private Dock", "Fire Pit", "Boat Slip", "Hiking Trails"],
+        "image": "https://i.ibb.co/48LjYFh/img6.jpg",
+        "year_built": 1995,
+        "bedrooms": 2,
+        "lot_size": "2 acres",
+        "ratings": 4
+      
+      },
+      {
+        "id": 6,
+        "estate_title": "Luxury Desert Oasis",
+        "segment_name": "guesthouses",
+        "description": "Experience opulent living in the heart of the desert at this luxurious oasis. With expansive grounds, a private pool, and lavish interiors, this property offers desert serenity.",
+        "price": "$8,000,000",
+        "status": "sale",
+        "area": "7000 sq ft",
+        "location": "Palm Springs, California",
+        "facilities": ["Private Pool", "Outdoor Kitchen", "Tennis Court", "Guest House"],
+        "image": "https://i.ibb.co/PcmbqXC/img3.jpg",
+        "year_built": 2010,
+        "bedrooms": 7,      
+        "lot_size": "2 acres",
+        "ratings": 4.5
+      }
+    ]
+  
+  
