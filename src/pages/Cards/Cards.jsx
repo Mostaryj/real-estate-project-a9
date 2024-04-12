@@ -1,20 +1,36 @@
-const Cards = () => {
+import { FaRegStar } from "react-icons/fa";
+import { MdLocationOn } from "react-icons/md";
+import { Link } from "react-router-dom";
+
+const Cards = ({ card }) => {
+  const {id, image, estate_title, location, price, ratings, area, bedrooms } =
+    card;
   return (
-    <div className="mt-10">
-        <h1 className="text-center font-semibold font-pop text-3xl">Some of our places</h1>
-        <p className="text-center">In these photos, you can choose your places. Click view <br />details to know more about this place</p>
-      <div className="card w-96 bg-base-100 shadow-xl mt-6">
+    <div className="">
+      <div className="card  bg-base-100 shadow-xl mt-6">
         <figure>
-          <img
-            src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-            alt="Shoes"
-          />
+          <img src={image} alt="Shoes" className="h-[250px] w-full" />
         </figure>
         <div className="card-body">
-          <h2 className="card-title">Shoes!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
+          <h2 className="card-title font-pop">{estate_title}</h2>
+          <p className="text-gray-500 flex items-center gap-1"> <span>
+              <MdLocationOn />
+            </span> {location}</p>
+          <p className="font-semibold">
+          Area: {area}
+           
+          </p>
+          <p className="font-semibold">Bedrooms: {bedrooms}</p>
+          <p className="font-semibold">Price: {price}</p>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary">Buy Now</button>
+            <p className="font-semibold flex items-center gap-2">
+              Ratings: {ratings}
+              <span className="text-red-400 ">
+                <FaRegStar />
+              </span>
+            </p>
+          <Link to={`/details/${id}`}>  <button className="btn btn-primary">View Details</button>
+          </Link>
           </div>
         </div>
       </div>
