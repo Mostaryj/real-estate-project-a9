@@ -1,10 +1,18 @@
+import Banner from "../Banner/Banner";
+import Header from "../shared/Header";
+import Nav from "../shared/Nav";
+
 
 const Home = () => {
-    return (
-        <div>
-            <h2 className="text-4xl font-pop font-bold">This is home home</h2>
-        </div>
-    );
+  return (
+    <div>
+        <Nav></Nav>
+        <Header></Header>
+    
+      <Banner></Banner>
+    
+     </div>
+  );
 };
 
 export default Home;
