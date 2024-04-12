@@ -4,7 +4,7 @@ import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 
 const Banner = () => {
   return (
-    <div className="">
+    <div className="mt-8">
       <Swiper
         spaceBetween={50}
         slidesPerView={1}

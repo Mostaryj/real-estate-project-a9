@@ -31,7 +31,7 @@ const Nav = () => {
   <div className="w-10 ">
           <img className="rounded-full" alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
         </div>
-    <Link>
+    <Link to='/login'>
     <button className="btn bg-cyan-500 text-white">Login</button>
     </Link>
    
