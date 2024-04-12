@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Nav from "../shared/Nav";
+import Footer from "../footer/Footer";
 
 const Login = () => {
   return (
@@ -44,6 +45,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <Footer></Footer>
     </div>
   );
 };

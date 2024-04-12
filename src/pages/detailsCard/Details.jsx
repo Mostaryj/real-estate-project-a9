@@ -2,6 +2,7 @@ import { FaRegStar } from "react-icons/fa";
 import { MdLocationOn } from "react-icons/md";
 import { useParams, useLoaderData } from "react-router-dom";
 import Nav from "../shared/Nav";
+import Footer from '../footer/Footer'
 
 const Details = () => {
   const cards = useLoaderData();
@@ -17,7 +18,7 @@ const Details = () => {
         Details of: {card.estate_title}
       </h1>
 
-      <div className="grid lg:grid-cols-2 sm:grid-cols-2  rounded-md shadow-sm mt-6 gap-0">
+      <div className="grid lg:grid-cols-2 sm:grid-cols-2  rounded-md shadow-sm mt-6 gap-0 mb-6">
         <div className="bg-sky-100 ">
           <img
             src={card.image}
@@ -60,7 +61,7 @@ const Details = () => {
         </div>
       </div>
 
-      <p></p>
+      <Footer></Footer>
     </div>
   );
 };

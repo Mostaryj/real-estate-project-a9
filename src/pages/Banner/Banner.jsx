@@ -49,11 +49,11 @@ const Banner = () => {
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src="image/banner33.jpg"
+            src="image/banner1.jpg"
             alt=""
             className=" w-full h-[450px] rounded-lg"
           />
-           
+         
          
         </SwiperSlide>
       </Swiper>

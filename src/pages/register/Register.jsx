@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Nav from "../shared/Nav";
+import Footer from "../footer/Footer";
 
 const Register = () => {
     return (
@@ -43,7 +44,9 @@ const Register = () => {
             <p className="text-center mt-4 p-4">Already have an account? <Link to='/login'> <span className="text-blue-600">Login now</span></Link></p>
           </div>
         </div>
+       
       </div>
+      <Footer></Footer>
         </div>
     );
 };

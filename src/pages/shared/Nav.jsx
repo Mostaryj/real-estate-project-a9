@@ -20,7 +20,7 @@ const Nav = () => {
        
       </ul>
     </div>
-    <a className="font-pop font-semibold text-xl">Luxury Retreats</a>
+    <a className="font-pop font-semibold text-xl text-cyan-500">Luxury Retreats</a>
   </div>
   <div className="navbar-center hidden md:flex lg:flex">
     <ul className="menu menu-horizontal  px-1 gap-4">
