@@ -29,7 +29,7 @@ const Cards = ({ card }) => {
                 <FaRegStar />
               </span>
             </p>
-          <Link to={`/details/${id}`}>  <button className="btn bg-cyan-500 text-white ">View Details</button>
+          <Link to={`/details/${id}`}>  <button className="btn    bg-gradient-to-r from-cyan-400 to-blue-500 text-white ">View Details</button>
           </Link>
           </div>
         </div>
