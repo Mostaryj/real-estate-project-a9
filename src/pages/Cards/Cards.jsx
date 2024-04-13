@@ -7,7 +7,7 @@ const Cards = ({ card }) => {
     card;
   return (
     <div className="">
-      <div className="card  bg-base-100 shadow-xl mt-6">
+      <div className="card  bg-base-100 shadow-xl mt-6   shadow-sky-100">
         <figure>
           <img src={image} alt="Shoes" className="h-[250px] w-full" />
         </figure>
@@ -29,7 +29,7 @@ const Cards = ({ card }) => {
                 <FaRegStar />
               </span>
             </p>
-          <Link to={`/details/${id}`}>  <button className="btn btn-primary">View Details</button>
+          <Link to={`/details/${id}`}>  <button className="btn bg-cyan-500 text-white ">View Details</button>
           </Link>
           </div>
         </div>

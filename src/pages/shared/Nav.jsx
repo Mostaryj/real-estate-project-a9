@@ -4,7 +4,7 @@ const Nav = () => {
   const navLinks = <>
      <li><NavLink to='/'>Home</NavLink></li>
      <li><NavLink to='/'>Update Profile</NavLink></li>
-     <li><NavLink to='/'>Home</NavLink></li>
+     <li><NavLink to='/'>About</NavLink></li>
      <li><NavLink to='/'>Home</NavLink></li>
   </>
     return (
@@ -20,7 +20,7 @@ const Nav = () => {
        
       </ul>
     </div>
-    <a className="font-pop font-semibold text-xl text-cyan-500">Luxury Retreats</a>
+    <a className="font-pop font-semibold lg:text-2xl text-cyan-600">Luxury Retreats</a>
   </div>
   <div className="navbar-center hidden md:flex lg:flex">
     <ul className="menu menu-horizontal  px-1 gap-4">

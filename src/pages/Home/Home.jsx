@@ -4,7 +4,8 @@ import Header from "../shared/Header";
 import Nav from "../shared/Nav";
 import Slider from "../shared/Slider";
 import { useLoaderData } from "react-router-dom";
-import Footer from '../footer/Footer';
+import { Helmet } from "react-helmet-async";
+import Leaflet from "../leaflet/Leaflet";
 
 
 const Home = () => {
@@ -13,6 +14,9 @@ const Home = () => {
   // console.log(cards);
   return (
     <div>
+      <Helmet>
+        <title>Luxury Retreats | Home</title>
+      </Helmet>
         <Nav></Nav>
         <Header></Header>
     <Slider></Slider>
@@ -31,9 +35,9 @@ const Home = () => {
         </div>
    
 
-
+      <Leaflet></Leaflet>
     
-      <Footer></Footer>
+    
     
 
      

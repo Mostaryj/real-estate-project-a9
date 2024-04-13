@@ -2,7 +2,7 @@ import { FaRegStar } from "react-icons/fa";
 import { MdLocationOn } from "react-icons/md";
 import { useParams, useLoaderData } from "react-router-dom";
 import Nav from "../shared/Nav";
-import Footer from '../footer/Footer'
+import { Helmet } from "react-helmet-async";
 
 const Details = () => {
   const cards = useLoaderData();
@@ -13,6 +13,9 @@ const Details = () => {
   console.log(card);
   return (
     <div>
+       <Helmet>
+        <title>Luxury Retreats | Details</title>
+      </Helmet>
       <Nav></Nav>
       <h1 className="text-3xl font-bold font-pop text-center mt-6 text-cyan-600">
         Details of: {card.estate_title}
@@ -61,7 +64,6 @@ const Details = () => {
         </div>
       </div>
 
-      <Footer></Footer>
     </div>
   );
 };

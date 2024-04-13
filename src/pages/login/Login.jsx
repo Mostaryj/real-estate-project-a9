@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import Nav from "../shared/Nav";
-import Footer from "../footer/Footer";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   return (
     <div>
+       <Helmet>
+        <title>Luxury Retreats | Login</title>
+      </Helmet>
       <Nav></Nav>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
@@ -45,7 +48,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <Footer></Footer>
+   
     </div>
   );
 };
