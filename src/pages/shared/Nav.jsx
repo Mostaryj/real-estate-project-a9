@@ -1,6 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
+import useAuth from "../../Hook/useAuth";
+
 
 const Nav = () => {
+
+  const {logOut, user} = useAuth();
+
   const navLinks = <>
      <li><NavLink to='/'>Home</NavLink></li>
      <li><NavLink to='/'>Update Profile</NavLink></li>
@@ -9,7 +14,7 @@ const Nav = () => {
   </>
     return (
         <div>
-            <div className="navbar bg-base-100">
+            <div className="navbar bg-base-100 shadow-xl">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost sm:hidden ">
@@ -21,7 +26,7 @@ const Nav = () => {
       </ul>
     </div>
     <a className="font-pop font-semibold lg:text-2xl  sm:flex items-center justify-center  bg-gradient-to-r from-cyan-400 to-violet-700  text-transparent bg-clip-text">
-      <span><img src="/public/image/icon.png" alt="" className="w-10 h-10 hidden sm:block " /></span>Luxury Retreats</a>
+      <span><img src="/image/icon.png" alt="" className="w-10 h-10 hidden sm:block " /></span>Luxury Retreats</a>
   </div>
   <div className="navbar-center hidden sm:block md:flex lg:flex">
     <ul className="menu menu-horizontal   px-1 gap-4">

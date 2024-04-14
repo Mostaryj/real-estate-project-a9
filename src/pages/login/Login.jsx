@@ -1,9 +1,29 @@
-import { Link } from "react-router-dom";
 import Nav from "../shared/Nav";
 import { Helmet } from "react-helmet-async";
-import { FaGithub, FaGoogle } from "react-icons/fa";
+
+import { useForm } from "react-hook-form";
+import Social from "../social/Social";
+import useAuth from "../../Hook/useAuth";
 
 const Login = () => {
+  const {signInUser} = useAuth();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+
+  const onSubmit = (data) => {
+    const {email, password} = data;
+    signInUser(email, password)
+    .then(result => {
+      console.log(result);
+    })
+    .catch(error => {
+      console.log(error);
+    })
+  };
   return (
     <div>
        <Helmet>
@@ -17,7 +37,7 @@ const Login = () => {
             
           </div>
           <div className="card shrink-0 w-full max-w-sm  bg-base-100 ">
-            <form className="card-body">
+            <form onSubmit={handleSubmit(onSubmit)}  className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -27,8 +47,9 @@ const Login = () => {
                   name="email"
                   placeholder="email"
                   className="input input-bordered"
-                  required
+                  {...register("email", { required: true })}
                 />
+                 {errors.email && <span className="text-red-500">This field is required</span>}
               </div>
               <div className="form-control">
                 <label className="label">
@@ -39,28 +60,19 @@ const Login = () => {
                   name="password"
                   placeholder="password"
                   className="input input-bordered"
-                  required
+                  {...register("password", { required: true })}
                 />
-              
+               {errors.password && <span className="text-red-500">This field is required</span>}
               </div>
               <div className="form-control mt-6">
                 <button className="btn   bg-gradient-to-r from-cyan-400 to-blue-500 text-white">Login</button>
               </div>
-            </form>           
+            </form>   
+                
           </div>
-
-
-          <p className="text-center p-2">Do not have an account? <Link to='/register'> <span className="text-blue-600">Register Now</span></Link></p>
-          {/* <p>Or, login with</p>
-          <p>Google github</p> */}
-           <button className="btn btn-outline ">
-          <FaGoogle className="text-blue-600"/>
-          Login with Google
-        </button>
-        <button className="btn btn-outline ">
-          <FaGithub />
-          Login with Github
-        </button>
+          <Social></Social>  
+        
+          
         </div>
        
       </div>
