@@ -45,16 +45,19 @@ const AuthProvider = ({ children }) => {
 
   //github login
   const githubLogin = () => {
-    return  signInWithPopup(auth, githubProvider)
+    return  signInWithPopup(auth, githubProvider);
+   
   }
 
   //log out
   const logOut = () =>{
-    signOut(auth).then(() => {
-        // Sign-out successful.
-      }).catch((error) => {
-       console.log(error);
-      });
+    setUser(null);
+    signOut(auth);
+    // .then(() => {
+    //     // Sign-out successful.
+    //   }).catch((error) => {
+    //    console.log(error);
+    //   });
   }
 
   // OBSERVER
@@ -71,7 +74,8 @@ const AuthProvider = ({ children }) => {
     signInUser,
     googleLogin,
     githubLogin,
-    logOut
+    logOut,
+    user
   };
   return (
     <AuthContext.Provider value={allValue}>{children}</AuthContext.Provider>

@@ -71,6 +71,7 @@ const Login = () => {
                 
           </div>
           <Social></Social>  
+         
         
           
         </div>
