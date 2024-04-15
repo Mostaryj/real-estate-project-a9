@@ -2,8 +2,11 @@ import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../Hook/useAuth";
 import { renderToString } from "react-dom/server";
 
+
 const Nav = () => {
   const { logOut, user } = useAuth();
+
+  
   // console.log(user);
 
   const tooltipContent = <>
@@ -101,19 +104,25 @@ const Nav = () => {
         <div className=" gap-4">
           <Link to="/login">
             {user ? (
+              
               <button
                 onClick={logOut}
                 className="btn bg-gradient-to-r from-cyan-400 to-blue-500 text-white"
               >
                 LogOut
               </button>
+
+            
             ) : (
-              <button
+            
+               <button
                 onClick={logOut}
                 className="btn bg-gradient-to-r from-cyan-400 to-blue-500 text-white"
               >
                 Login
               </button>
+            
+
             )}
           </Link>
         </div>

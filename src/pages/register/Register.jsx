@@ -9,6 +9,9 @@ import { FaEyeSlash } from "react-icons/fa";
 import { FaEye } from "react-icons/fa";
 import { useState } from "react";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Register = () => {
   const {createUser} = useAuth();
   const [show, setShow] = useState(false);
@@ -28,6 +31,10 @@ const Register = () => {
     })
   };
 
+
+  const registerToast = () =>{
+    toast.success("Registered successfully");
+  }
 
   // console.log(createUser);
   return (
@@ -107,8 +114,9 @@ const Register = () => {
                   {errors.password && <span className="text-red-500">This field is required</span>}
               </div>
               <div className="form-control mt-6">
-                <button className="btn bg-gradient-to-r from-cyan-400 to-blue-500 text-white">Register Now</button>
+                <button onClick={registerToast} className="btn bg-gradient-to-r from-cyan-400 to-blue-500 text-white">Register Now</button>
               </div>
+              <ToastContainer />
             </form>
 
 

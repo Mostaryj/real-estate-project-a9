@@ -44,7 +44,10 @@ const AuthProvider = ({ children }) => {
   // sign in user
   const signInUser = (email, password) => {
     setLoading(true);
-    return signInWithEmailAndPassword(auth, email, password);
+    return signInWithEmailAndPassword(auth, email, password)
+  //   .then(()=>{
+  //     alert('please check your email and verify your account')
+  // })
   };
 
 
