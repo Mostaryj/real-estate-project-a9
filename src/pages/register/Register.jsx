@@ -5,8 +5,13 @@ import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import useAuth from "../../Hook/useAuth";
 
+import { FaEyeSlash } from "react-icons/fa";
+import { FaEye } from "react-icons/fa";
+import { useState } from "react";
+
 const Register = () => {
   const {createUser} = useAuth();
+  const [show, setShow] = useState(false);
 
   const {
     register,
@@ -82,17 +87,23 @@ const Register = () => {
                 />
                   {/* {errors.photoURL && <span className="text-red-500">This field is required</span>} */}
               </div>
-              <div className="form-control">
+              <div className="form-control relative">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                  type="password"
+                  type={show ? "text" : "password"}
                   name="password"
                   placeholder="password"
                   className="input input-bordered"
                   {...register("password", { required: true })}
                 />
+                <span onClick={() => setShow(!show)} className="absolute bottom-4 right-2">
+                  {
+                    show ? <FaEyeSlash /> : <FaEye />
+
+                  }
+                  </span>
                   {errors.password && <span className="text-red-500">This field is required</span>}
               </div>
               <div className="form-control mt-6">

@@ -4,9 +4,15 @@ import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import Social from "../social/Social";
 import useAuth from "../../Hook/useAuth";
+import { FaEyeSlash } from "react-icons/fa";
+import { FaEye } from "react-icons/fa";
+import { useState } from "react";
 
 const Login = () => {
   const {signInUser} = useAuth();
+  const [show, setShow] = useState(false);
+
+
   const {
     register,
     handleSubmit,
@@ -51,17 +57,23 @@ const Login = () => {
                 />
                  {errors.email && <span className="text-red-500">This field is required</span>}
               </div>
-              <div className="form-control">
+              <div className="form-control relative">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                  type="password"
+                  type={show ? "text" : "password"}
                   name="password"
                   placeholder="password"
                   className="input input-bordered"
                   {...register("password", { required: true })}
                 />
+                 <span onClick={() => setShow(!show)} className="absolute bottom-4 right-2">
+                  {
+                    show ? <FaEyeSlash /> : <FaEye />
+
+                  }
+                  </span>
                {errors.password && <span className="text-red-500">This field is required</span>}
               </div>
               <div className="form-control mt-6">
