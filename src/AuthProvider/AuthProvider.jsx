@@ -7,6 +7,8 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  
+ 
 } from "firebase/auth";
 import auth from "../firebase/firebase.config";
 
@@ -29,8 +31,12 @@ const AuthProvider = ({ children }) => {
   //create user
   const createUser = (email, password) => {
     setLoading(true);
-    return createUserWithEmailAndPassword(auth, email, password);
+    return createUserWithEmailAndPassword(auth, email, password)
+   
+
   };
+
+ 
 
 
 
@@ -60,34 +66,32 @@ const AuthProvider = ({ children }) => {
 
   //log out
   const logOut = () =>{
-    setLoading(true);
-    setUser(null);
-   return signOut(auth);
-    // .then(() => {
-    //     // Sign-out successful.
-    //   }).catch((error) => {
-    //    console.log(error);
-    //   });
-  }
+     setLoading(true);
+      setUser(null);
+   return signOut(auth)
+ 
+  };
 
   // OBSERVER
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
-        setLoading(false);
+         setLoading(false);
       }
     });
   }, []);
 
   const allValue = {
-    loading,
     createUser,
     signInUser,
     googleLogin,
     githubLogin,
     logOut,
-    user
+    user,
+    setUser
+            //  loading
+
   };
   return (
     <AuthContext.Provider value={allValue}>{children}</AuthContext.Provider>
