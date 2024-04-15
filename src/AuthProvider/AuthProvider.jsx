@@ -89,7 +89,7 @@ const AuthProvider = ({ children }) => {
     githubLogin,
     logOut,
     user,
-    setUser
+     setUser
             //  loading
 
   };

@@ -24,25 +24,17 @@ const UPdateProfile = () => {
       profileUpdates.photoURL = photoURL;
     }
 
-    updateProfile(user, profileUpdates)
+    updateProfile(user, setUser, profileUpdates)
       .then(() => {
         console.log("Profile updated successfully");
 
         setUser({
-            ...user,
+             ...user,
             displayName: name || user.displayName,
             photoURL: photoURL || user.photoURL,
           });
 
-        // setName(name);
-        // setPhotoURL(photoURL);
-
-        //  setUser({...user, displayName: name});
-
-        // setUser({displayName: "", photoURL: ""})
-
-        // setName(profileUpdates.displayName || "");
-        // setPhotoURL(profileUpdates.photoURL || "");
+   
       })
 
       .catch((error) => {
@@ -51,10 +43,12 @@ const UPdateProfile = () => {
   };
 
   const handleNameChange = (e) => {
+    e.preventDefault();
     setName(e.target.value);
   };
 
   const handlePhotoURLChange = (e) => {
+    e.preventDefault();
     setPhotoURL(e.target.value);
   };
 
