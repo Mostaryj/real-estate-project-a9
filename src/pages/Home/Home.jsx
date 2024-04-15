@@ -10,7 +10,13 @@ import Leaflet from "../leaflet/Leaflet";
 
 const Home = () => {
 
+ 
+ 
+
   const cards = useLoaderData();
+
+ 
+
   // console.log(cards);
   return (
     <div>
