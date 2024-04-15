@@ -40,19 +40,21 @@ const AuthProvider = ({ children }) => {
 
   // google login
   const googleLogin = () => {
-    return signInWithPopup(auth, googleProvider) ;
+    return signInWithPopup(auth, googleProvider) 
+  
   };
 
   //github login
   const githubLogin = () => {
-    return  signInWithPopup(auth, githubProvider);
+    return  signInWithPopup(auth, githubProvider)
    
-  }
+   
+  };
 
   //log out
   const logOut = () =>{
     setUser(null);
-    signOut(auth);
+   return signOut(auth);
     // .then(() => {
     //     // Sign-out successful.
     //   }).catch((error) => {

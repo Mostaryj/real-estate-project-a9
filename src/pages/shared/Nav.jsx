@@ -1,22 +1,28 @@
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../Hook/useAuth";
+import { renderToString } from "react-dom/server";
 
 const Nav = () => {
   const { logOut, user } = useAuth();
   // console.log(user);
 
+  const tooltipContent = <>
+  {user?.displayName || "user name not found"}
+  </>;
+  const tooltipString = renderToString(tooltipContent);
+
   const navLinks = (
     <>
-      <li>
+      <li className="font-semibold">
         <NavLink to="/">Home</NavLink>
       </li>
-      <li>
+      <li className="font-semibold">
         <NavLink to="/update">Update Profile</NavLink>
       </li>
-      <li>
+      <li className="font-semibold">
         <NavLink to="/user">User Profile</NavLink>
       </li>
-      <li>
+      <li className="font-semibold">
         <NavLink to="/about">About Us</NavLink>
       </li>
     </>
@@ -68,76 +74,49 @@ const Nav = () => {
           <ul className="menu menu-horizontal   px-1 gap-4">{navLinks}</ul>
         </div>
 
-        {/* <div className="navbar-end gap-4">
-          <div className="w-10 ">
-            <img
-              className="rounded-full"
-              alt="Tailwind CSS Navbar component"
-              src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-            />
-          </div>
-          <Link to="/login">
-            <button className="btn bg-cyan-500  bg-gradient-to-r from-cyan-400 to-blue-500 text-white">
-              Login
-            </button>
-          </Link>
-        </div> */}
-
-        {user ?.email ?
-        <div className="navbar-end gap-4">
-          <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="btn btn-ghost  btn-circle avatar">
-              <div className="w-10 rounded-full ">
-                <img
-                  src={
-                    user?.photoURL ||
-                    "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                  }
-                />
-              </div>
-            </label>
-
-            {/* <div className="tooltip tooltip-open" data-tip="hello"> */}
-
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 "
-            >
-              <li>
-                <button className="btn btn-sm  btn-ghost">
-                  {user?.displayName || "user name not found"}
-                </button>
-              </li>
-              <li>
-                <button onClick={logOut} className="btn btn-sm  btn-ghost">
-                  Logout
-                </button>
-              </li>
-            </ul>
-            {/* </div> */}
-
-
-          </div>
-          </div>
-         : 
-          <Link to="/login">
-            <button className="btn bg-cyan-500  bg-gradient-to-r from-cyan-400 to-blue-500 text-white">Login</button>
-          </Link>
-         
-        }
-
-        
-         {/* <div>
-         {user &&
-                <div>
-                    <h3>User: {user.displayName}</h3>
-                    <p>User Email:{user.email}</p>
-                    <p>photo:{user.photoURL}</p>
+        {user && (
+          <div className="navbar-end gap-4">
+            <div className="dropdown dropdown-end ">
+              <label
+                tabIndex={0}
+                className="tooltip tooltip-bottom mr-4  btn btn-ghost  btn-circle avatar"
+                data-tip={tooltipString}
+              
+              >
+                <div className="w-12 rounded-full ">
+                  <img
+                    src={
+                      user?.photoURL ||
+                      "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                    }
+                  />
                 </div>
-            }
-         </div> */}
+              </label>
+
+            </div>
+          </div>
+        )}
+
+        <div className=" gap-4">
+          <Link to="/login">
+            {user ? (
+              <button
+                onClick={logOut}
+                className="btn bg-gradient-to-r from-cyan-400 to-blue-500 text-white"
+              >
+                LogOut
+              </button>
+            ) : (
+              <button
+                onClick={logOut}
+                className="btn bg-gradient-to-r from-cyan-400 to-blue-500 text-white"
+              >
+                Login
+              </button>
+            )}
+          </Link>
         </div>
-     
+      </div>
     </div>
   );
 };
