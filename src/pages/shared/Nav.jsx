@@ -73,6 +73,7 @@ const Nav = () => {
         <div className="navbar-center  hidden sm:block md:flex lg:flex">
           <ul className="menu menu-horizontal   px-1 gap-4">{navLinks}</ul>
         </div>
+        
 
         {user && (
           <div className="navbar-end gap-4">

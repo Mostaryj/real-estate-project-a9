@@ -8,6 +8,9 @@ import Register from "../pages/register/Register";
 import Error from "../error/Error";
 import Details from "../pages/detailsCard/Details";
 import UserProfile from "../profile/UserProfile";
+import UPdateProfile from "../profile/UPdateProfile";
+import About from "../pages/about/About";
+import PrivateRoute from "../privateRoute/PrivateRoute";
 const routes = createBrowserRouter([
     {
       path: "/",
@@ -21,7 +24,7 @@ const routes = createBrowserRouter([
         },
         {
         path: '/details/:id',      
-        element: <Details></Details>,
+        element: <PrivateRoute><Details></Details></PrivateRoute>,
          loader: () => fetch("/fakeData/fakeData.json"),
         },
         {
@@ -34,7 +37,15 @@ const routes = createBrowserRouter([
         },
         {
           path: "/user",
-          element: <UserProfile></UserProfile>
+          element: <UserProfile></UserProfile>,
+        },
+        {
+          path: "/update",
+          element: <PrivateRoute><UPdateProfile></UPdateProfile></PrivateRoute>,
+        },
+        {
+          path: "/about",
+          element:<PrivateRoute> <About></About></PrivateRoute>,
         }
        
       ]
