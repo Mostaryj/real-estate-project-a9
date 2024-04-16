@@ -3,6 +3,7 @@ import useAuth from "../../Hook/useAuth";
 import { renderToString } from "react-dom/server";
 
 
+
 const Nav = () => {
   const { logOut, user } = useAuth();
 
@@ -90,8 +91,10 @@ const Nav = () => {
                 <div className="w-12 rounded-full ">
                   <img
                     src={
-                      user?.photoURL ||
-                      "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                      user?.photoURL || 
+
+
+                       "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
                     }
                   />
                 </div>

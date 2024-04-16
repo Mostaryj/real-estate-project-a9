@@ -9,11 +9,11 @@ import { FaEyeSlash } from "react-icons/fa";
 import { FaEye } from "react-icons/fa";
 import { useState } from "react";
 
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
-  const {createUser} = useAuth();
+  const { createUser } = useAuth();
   const [show, setShow] = useState(false);
 
   const {
@@ -22,21 +22,20 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
-
   const onSubmit = (data) => {
-    const {email, password} = data;
+    const { email, password } = data;
     createUser(email, password)
-    .then(result => {
+    .then((result) => {
       console.log(result);
+      toast.success("Registration successfully"); 
+      
     })
+    .catch(error => {
+      console.error(error);
+      toast.error("Registration failed. Please try again."); 
+    });
   };
-
-
-  const registerToast = () =>{
-    toast.success("Registered successfully");
-  }
-
-  // console.log(createUser);
+ 
   return (
     <div>
       <Helmet>
@@ -49,9 +48,9 @@ const Register = () => {
             <h1 className="text-5xl font-bold">Register</h1>
           </div>
           <div className="card shrink-0 max-w-sm  shadow-2xl bg-base-100 w-[400px]">
+            <form  onSubmit={handleSubmit(onSubmit)}
 
-
-            <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+             className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Name</span>
@@ -62,10 +61,10 @@ const Register = () => {
                   placeholder="name"
                   className="input input-bordered"
                   {...register("fullName", { required: true })}
-
                 />
-                      {errors.fullName && <span className="text-red-500">This field is required</span>}
-
+                {errors.fullName && (
+                  <span className="text-red-500">This field is required</span>
+                )}
               </div>
               <div className="form-control">
                 <label className="label">
@@ -75,11 +74,12 @@ const Register = () => {
                   type="email"
                   name="email"
                   placeholder="email"
-                  className="input input-bordered"                
+                  className="input input-bordered"
                   {...register("email", { required: true })}
-
                 />
-                  {errors.email && <span className="text-red-500">This field is required</span>}
+                {errors.email && (
+                  <span className="text-red-500">This field is required</span>
+                )}
               </div>
               <div className="form-control">
                 <label className="label">
@@ -92,7 +92,7 @@ const Register = () => {
                   className="input input-bordered"
                   {...register("photoURL")}
                 />
-                  {/* {errors.photoURL && <span className="text-red-500">This field is required</span>} */}
+               
               </div>
               <div className="form-control relative">
                 <label className="label">
@@ -103,23 +103,39 @@ const Register = () => {
                   name="password"
                   placeholder="password"
                   className="input input-bordered"
-                  {...register("password", { required: true })}
-                />
-                <span onClick={() => setShow(!show)} className="absolute bottom-4 right-2">
-                  {
-                    show ? <FaEyeSlash /> : <FaEye />
+                  {...register("password", {
+                    required: true,
+                    minLength: 6,
+                    pattern: /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/,
 
-                  }
+                  })}
+                />
+                <span
+                  onClick={() => setShow(!show)}
+                  className="absolute bottom-4 right-2"
+                >
+                  {show ? <FaEyeSlash /> : <FaEye />}
+                </span>
+                {errors.password && (
+                  <span className="text-red-500">
+                    {" "}
+                    Password must be at least 6 characters long and contain at
+                    least one uppercase and one lowercase letter
                   </span>
-                  {errors.password && <span className="text-red-500">This field is required</span>}
+                )}
               </div>
               <div className="form-control mt-6">
-                <button onClick={registerToast} className="btn bg-gradient-to-r from-cyan-400 to-blue-500 text-white">Register Now</button>
+                <button type="submit"
+                      //  onClick={registerToast}
+                      
+
+                  className="btn bg-gradient-to-r from-cyan-400 to-blue-500 text-white"
+                >
+                  Register Now
+                </button>
               </div>
               <ToastContainer />
             </form>
-
-
 
             <p className="text-center  p-4">
               Already have an account?{" "}

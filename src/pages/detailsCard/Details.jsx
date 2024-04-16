@@ -21,16 +21,16 @@ const Details = () => {
         Details of: {card.estate_title}
       </h1>
 
-      <div className="grid lg:grid-cols-2 sm:grid-cols-2  rounded-md shadow-sm mt-6 gap-0 mb-6">
+      <div className="grid  rounded-md shadow-sm mt-6 gap-0 mb-6">
         <div className="bg-sky-100 ">
           <img
             src={card.image}
             alt="Shoes"
-            className="w-[550px] h-full  rounded-l-md "
+            className="w-full h-[400px]  rounded-l-md "
           />
         </div>
-        <div className="p-4 bg-sky-100 rounded-r-md">
-          <h3 className="text-xl  font-pop font-semibold">
+        <div className="p-8 bg-sky-100 rounded-r-md ">
+          <h3 className="text-2xl  font-pop font-semibold">
             Name: {card.estate_title}
           </h3>
           <p>
@@ -54,11 +54,11 @@ const Details = () => {
               <li key={index}>{facility}</li>
             ))}
           </p>
-          <p>Bedrooms: {card.bedrooms}</p>
-          <p>Segment Name: {card.segment_name}</p>
-          <p>Status: {card.status}</p>
-          <p>Build Year: {card.year_built}</p>
-          <p className="flex items-center gap-1 ">Ratings: {card.ratings}   <span className="text-red-400 ">
+          <p className="font-semibold">Bedrooms: {card.bedrooms}</p>
+          <p className="font-semibold">Segment Name: {card.segment_name}</p>
+          <p className="font-semibold">Status: {card.status}</p>
+          <p className="font-semibold">Build Year: {card.year_built}</p>
+          <p className="flex items-center gap-1 font-semibold">Ratings: {card.ratings}   <span className="text-red-400 ">
                 <FaRegStar />
               </span></p>
         </div>

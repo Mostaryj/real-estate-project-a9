@@ -45,9 +45,7 @@ const AuthProvider = ({ children }) => {
   const signInUser = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password)
-  //   .then(()=>{
-  //     alert('please check your email and verify your account')
-  // })
+ 
   };
 
 
@@ -56,7 +54,6 @@ const AuthProvider = ({ children }) => {
   const googleLogin = () => {
     setLoading(true);
     return signInWithPopup(auth, googleProvider) 
-  
   };
 
   //github login

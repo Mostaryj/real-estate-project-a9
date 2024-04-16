@@ -8,15 +8,18 @@ const UserProfile = () => {
         <div>
             <Nav></Nav>
              <div className="w-[400px] h-[300px] p-4 border-2 mt-4 mb-4 bg-sky-200 rounded-xl border-sky-500 mx-auto">
+                
          {user &&
                 <div>
-                    <h3 className="font-bold">User: {user.displayName}</h3>
+                    <h3 className="font-bold">User: {user?.displayName || "not found"}</h3>
                     <p className="font-bold">User Email:{user.email}</p>
                     <div className="w-[200px] h-[150px] font-bold">
-                        <p>PhotoURL: <img src={user.photoURL} alt="" /></p>
+                        <p>PhotoURL: <img src={user?.photoURL || "not found"} alt="" /></p>
                     </div>
                 </div>
             }
+
+           
          </div>
         </div>
     );

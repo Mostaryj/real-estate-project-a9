@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import useAuth from "../Hook/useAuth";
 import Nav from "../pages/shared/Nav";
 import { updateProfile } from "firebase/auth";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const UPdateProfile = () => {
   const { user, setUser } = useAuth();
@@ -27,6 +30,7 @@ const UPdateProfile = () => {
     updateProfile(user, setUser, profileUpdates)
       .then(() => {
         console.log("Profile updated successfully");
+        toast.success("updated successfully");
 
         setUser({
              ...user,
@@ -39,6 +43,8 @@ const UPdateProfile = () => {
 
       .catch((error) => {
         console.error("Error updating profile:", error);
+       
+
       });
   };
 
@@ -79,6 +85,7 @@ const UPdateProfile = () => {
           >
             Update
           </button>
+          <ToastContainer />
         </div>
       </div>
     </div>

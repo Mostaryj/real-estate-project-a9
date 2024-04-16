@@ -6,10 +6,7 @@ const About = () => {
     <div>
       <Nav></Nav>
       <h1 className="text-4xl font-bold font-pop text-center mt-6">About Us</h1>
-      <p className="text-center">
-        To know more about us, fill up the form & let us know about your
-        question
-      </p>
+     
 
       <div className="dark:bg-gray-100 dark:text-gray-800 lg:flex">
         <div className="container flex flex-col-reverse mx-auto lg:flex-row">
