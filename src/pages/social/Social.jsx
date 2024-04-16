@@ -15,10 +15,9 @@ const Social = () => {
   const handleSocial = (socialProvider) => {
     socialProvider()
     .then((result) => {
-      console.log(result);
        if (result) {
-      const id =  toast.success( "login successful!");
-        console.log(id)
+     toast.success( "login successful!");
+      
         navigate(from);
        }
     });

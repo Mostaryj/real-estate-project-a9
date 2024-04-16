@@ -8,12 +8,18 @@ import { FaEyeSlash } from "react-icons/fa";
 import { FaEye } from "react-icons/fa";
 import { useState } from "react";
 
-import { ToastContainer, toast } from "react-toastify";
+import {  toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const { signInUser } = useAuth();
   const [show, setShow] = useState(false);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location?.state || "/";
 
   const {
     register,
@@ -26,6 +32,8 @@ const Login = () => {
     signInUser(email, password)
       .then((result) => {
         toast.success("Login successful", result);
+        navigate(from);
+
       })
       .catch((error) => {
         toast.error(
@@ -93,7 +101,7 @@ const Login = () => {
                 </button>
               </div>
 
-              <ToastContainer />
+              {/* <ToastContainer /> */}
             </form>
           </div>
           <Social></Social>

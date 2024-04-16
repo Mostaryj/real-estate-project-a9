@@ -9,7 +9,7 @@ import { FaEyeSlash } from "react-icons/fa";
 import { FaEye } from "react-icons/fa";
 import { useState } from "react";
 
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
@@ -32,8 +32,9 @@ const Register = () => {
     createUser(email, password)
     .then((result) => {
       console.log(result);
-      navigate(from);
+      
       toast.success("Registration successfully"); 
+      navigate(from);
       
     })
     .catch(error => {
@@ -101,14 +102,14 @@ const Register = () => {
                
               </div>
               <div className="form-control ">
-                <label className="label">
-                  <span className="label-text relative">Password</span>
+                <label className="label ">
+                  <span className="label-text ">Password</span>
                 </label>
                 <input
                   type={show ? "text" : "password"}
                   name="password"
                   placeholder="password"
-                  className="input input-bordered"
+                  className="input input-bordered  relative"
                   {...register("password", {
                     required: true,
                     minLength: 6,
@@ -118,7 +119,7 @@ const Register = () => {
                 />
                 <span
                   onClick={() => setShow(!show)}
-                  className="absolute bottom-52 right-12"
+                  className="absolute ml-72 mt-14"
                 >
                   {show ? <FaEyeSlash /> : <FaEye />}
                 </span>
@@ -137,7 +138,6 @@ const Register = () => {
                   Register Now
                 </button>
               </div>
-              <ToastContainer />
             </form>
 
             <p className="text-center  p-4">

@@ -28,8 +28,9 @@ const Home = () => {
       </Helmet>
         <Nav></Nav>
         <Header></Header>
-    <Slider></Slider>
+    
       <Banner></Banner>
+      <Slider></Slider>
      
 
 
