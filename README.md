@@ -1,6 +1,6 @@
 # Website: Luxury Retreats
 
-[Live Site](https://www.example.com)
+[Live Site]https://real-estate-project-f2c00.web.app
 
 ## Features and Characteristics
 
