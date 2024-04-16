@@ -13,7 +13,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const { signInUser } = useAuth();
+  const { signInUser} = useAuth();
   const [show, setShow] = useState(false);
 
   const navigate = useNavigate();
@@ -31,16 +31,16 @@ const Login = () => {
     const { email, password } = data;
     signInUser(email, password)
       .then((result) => {
-        toast.success("Login successful", result);
-        navigate(from);
+         toast.success("Login successful", result);
+         navigate(from);
 
-      })
-      .catch((error) => {
-        toast.error(
-          "Failed to login. Please check your email or password.",
-          error
-        );
-      });
+       })
+       .catch((error) => {
+         toast.error(
+           "Failed to login. Please check your email or password.",
+           error
+         );
+       });
   };
 
   return (
@@ -101,7 +101,6 @@ const Login = () => {
                 </button>
               </div>
 
-              {/* <ToastContainer /> */}
             </form>
           </div>
           <Social></Social>

@@ -6,7 +6,6 @@ import Slider from "../shared/Slider";
 import { useLoaderData } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Leaflet from "../leaflet/Leaflet";
-  //  import useAuth from "../../Hook/useAuth";
 
 
 const Home = () => {
@@ -14,11 +13,7 @@ const Home = () => {
 
    const cards = useLoaderData();
 
-//   const {  loading } = useAuth();
-//  if(loading){
-//     return <div className="flex justify-center mt-10 items-center"><span className="loading loading-spinner loading-lg "></span></div>
 
-//   }
 
   // console.log(cards);
   return (

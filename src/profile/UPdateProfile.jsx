@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import useAuth from "../Hook/useAuth";
 import Nav from "../pages/shared/Nav";
 import { updateProfile } from "firebase/auth";
-import { ToastContainer, toast } from 'react-toastify';
+import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -10,10 +10,13 @@ const UPdateProfile = () => {
   const { user, setUser } = useAuth();
   const [name, setName] = useState("");
   const [photoURL, setPhotoURL] = useState("");
+  const [email, setEmail] = useState("");
 
   useEffect(() => {
     setName(user.displayName || "");
+    setEmail(user.email || "")
     setPhotoURL(user.photoURL || "");
+
   }, [user]);
 
   const handleUpdateProfile = () => {
@@ -23,11 +26,14 @@ const UPdateProfile = () => {
     if (name) {
       profileUpdates.displayName = name;
     }
+    if (email) {
+      profileUpdates.email = email;
+    }
     if (photoURL) {
       profileUpdates.photoURL = photoURL;
     }
 
-    updateProfile(user, setUser, profileUpdates)
+    updateProfile(user,  profileUpdates)
       .then(() => {
         console.log("Profile updated successfully");
         toast.success("updated successfully");
@@ -35,6 +41,7 @@ const UPdateProfile = () => {
         setUser({
              ...user,
             displayName: name || user.displayName,
+            email: email || user.email,
             photoURL: photoURL || user.photoURL,
           });
 
@@ -51,6 +58,11 @@ const UPdateProfile = () => {
   const handleNameChange = (e) => {
     e.preventDefault();
     setName(e.target.value);
+  };
+
+  const handleEmailChange = (e) => {
+    e.preventDefault();
+    setEmail(e.target.value);
   };
 
   const handlePhotoURLChange = (e) => {
@@ -74,18 +86,27 @@ const UPdateProfile = () => {
 
           <input
             className="w-full h-10 p-2  rounded-md border-2"
+            type="email"
+            placeholder="Update your email"
+            value={email}
+            onChange={handleEmailChange}
+          />
+
+          <input
+            className="w-full h-10 p-2  rounded-md border-2"
             type="text"
             placeholder="Update photoURL"
             value={photoURL}
             onChange={handlePhotoURLChange}
           />
+           
+
           <button
             onClick={handleUpdateProfile}
             className="btn bg-cyan-500 text-white"
           >
             Update
           </button>
-          <ToastContainer />
         </div>
       </div>
     </div>

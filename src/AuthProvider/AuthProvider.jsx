@@ -12,6 +12,8 @@ import {
 } from "firebase/auth";
 import auth from "../firebase/firebase.config";
 
+
+
 export const AuthContext = createContext(null);
 
 
@@ -23,7 +25,7 @@ const githubProvider = new GithubAuthProvider();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  console.log(user);
+   console.log(user);
 
   //loading
   const [loading, setLoading] = useState(true);
@@ -44,7 +46,9 @@ const AuthProvider = ({ children }) => {
   const signInUser = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password)
+   
  
+
   };
 
 
@@ -67,23 +71,46 @@ const AuthProvider = ({ children }) => {
    
   };
 
-  //log out
+  
   const logOut = () =>{
      setLoading(true);
       setUser(null);
    return signOut(auth)
+   
  
   };
+  
+  // const logOut = () => {
+  //   setLoading(true);
+  //   setUser(null);
+  //   return signOut(auth)
+  //     .then(() => {
+  //       setLoading(false);
+
+  //     })
+
+  //     .catch((error) => {
+  //       setLoading(false);
+  //       console.error('Error logging out:', error);
+  //     });
+     
+  // };
+
+
 
   // OBSERVER
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
+    const unsubscribe = 
+   onAuthStateChanged(auth, (user) => {
+     
         setUser(user);
          setLoading(false);
-      }
+    
     });
+     return () => unsubscribe();
   }, []);
+
+
 
   const allValue = {
     createUser,
@@ -92,8 +119,8 @@ const AuthProvider = ({ children }) => {
     githubLogin,
     logOut,
     user,
-     setUser
-            //  loading
+     setUser,
+        //  loading
 
   };
   return (
