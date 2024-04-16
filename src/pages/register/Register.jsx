@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Nav from "../shared/Nav";
 import { Helmet } from "react-helmet-async";
 
@@ -16,6 +16,11 @@ const Register = () => {
   const { createUser } = useAuth();
   const [show, setShow] = useState(false);
 
+  const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location?.state || "/";
+
   const {
     register,
     handleSubmit,
@@ -27,6 +32,7 @@ const Register = () => {
     createUser(email, password)
     .then((result) => {
       console.log(result);
+      navigate(from);
       toast.success("Registration successfully"); 
       
     })
@@ -94,9 +100,9 @@ const Register = () => {
                 />
                
               </div>
-              <div className="form-control relative">
+              <div className="form-control ">
                 <label className="label">
-                  <span className="label-text">Password</span>
+                  <span className="label-text relative">Password</span>
                 </label>
                 <input
                   type={show ? "text" : "password"}
@@ -112,7 +118,7 @@ const Register = () => {
                 />
                 <span
                   onClick={() => setShow(!show)}
-                  className="absolute bottom-4 right-2"
+                  className="absolute bottom-52 right-12"
                 >
                   {show ? <FaEyeSlash /> : <FaEye />}
                 </span>
@@ -126,10 +132,7 @@ const Register = () => {
               </div>
               <div className="form-control mt-6">
                 <button type="submit"
-                      //  onClick={registerToast}
-                      
-
-                  className="btn bg-gradient-to-r from-cyan-400 to-blue-500 text-white"
+                className="btn bg-gradient-to-r from-cyan-400 to-blue-500 text-white"
                 >
                   Register Now
                 </button>
