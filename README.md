@@ -17,4 +17,4 @@
 - Animate.css (npm package name: animate.css): A library of ready-to-use CSS animations.
 - React-leaflet (npm package name: react-leaflet): React components for Leaflet maps.
 - React Hook Form (npm package name: react-hook-form): React library for efficient form validation and management.
-- Swiper (npm package name: swiper): Modern JavaScript slider library for creating touch-enabled sliders and carousels.
+
