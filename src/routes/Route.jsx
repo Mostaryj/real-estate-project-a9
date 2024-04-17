@@ -37,7 +37,7 @@ const routes = createBrowserRouter([
         },
         {
           path: "/user",
-          element: <UserProfile></UserProfile>,
+          element: <PrivateRoute><UserProfile></UserProfile></PrivateRoute>,
         },
         {
           path: "/update",

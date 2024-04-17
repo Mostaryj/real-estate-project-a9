@@ -16,7 +16,7 @@ if(loading){
 
   return (
     <div>
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto p-2">
         <Outlet></Outlet>
      
       </div>
