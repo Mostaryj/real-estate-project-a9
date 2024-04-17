@@ -8,8 +8,9 @@ import { FaEyeSlash } from "react-icons/fa";
 import { FaEye } from "react-icons/fa";
 import { useState } from "react";
 
-import {  toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import {   toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
+
 import { useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -100,8 +101,9 @@ const Login = () => {
                   Login
                 </button>
               </div>
-
+              
             </form>
+           
           </div>
           <Social></Social>
         </div>
