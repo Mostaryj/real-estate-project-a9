@@ -84,7 +84,7 @@ const Login = () => {
                 />
                 <span
                   onClick={() => setShow(!show)}
-                  className="absolute bottom-4 right-2"
+                  className="absolute mt-14 ml-48 sm:ml-56"
                 >
                   {show ? <FaEyeSlash /> : <FaEye />}
                 </span>

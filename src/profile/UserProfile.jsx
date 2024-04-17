@@ -7,7 +7,7 @@ const UserProfile = () => {
     return (
         <div>
             <Nav></Nav>
-             <div className="w-[400px] h-[300px] p-4 border-2 mt-4 mb-4 bg-sky-200 rounded-xl border-sky-500 mx-auto">
+             <div className="md:w-[400px] h-[300px] p-4 border-2 mt-4 mb-4 bg-sky-200 rounded-xl border-sky-500 mx-auto">
                 
          {user &&
                 <div>

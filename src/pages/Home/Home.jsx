@@ -27,7 +27,8 @@ const Home = () => {
       <Banner></Banner>
       <Slider></Slider>
      
-
+      
+       
 
       <h1 className="text-center font-semibold font-pop text-3xl mt-8">Some of our places</h1>
         <p className="text-center">In these photos, you can choose your places. Click view details to know more about this place</p>
@@ -38,10 +39,11 @@ const Home = () => {
       card={card}></Cards>)
      }
         </div>
-   
+
+    
 
       <Leaflet></Leaflet>
-    
+      
     
     
 

@@ -28,7 +28,7 @@ const AuthProvider = ({ children }) => {
    console.log(user);
 
   //loading
-  const [loading, setLoading] = useState(true);
+   const [loading, setLoading] = useState(true);
 
 
 
@@ -44,7 +44,7 @@ const AuthProvider = ({ children }) => {
 
   // sign in user
   const signInUser = (email, password) => {
-    setLoading(true);
+     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password)
    
  
@@ -73,28 +73,14 @@ const AuthProvider = ({ children }) => {
 
   
   const logOut = () =>{
-     setLoading(true);
+      setLoading(true);
       setUser(null);
    return signOut(auth)
    
  
   };
   
-  // const logOut = () => {
-  //   setLoading(true);
-  //   setUser(null);
-  //   return signOut(auth)
-  //     .then(() => {
-  //       setLoading(false);
-
-  //     })
-
-  //     .catch((error) => {
-  //       setLoading(false);
-  //       console.error('Error logging out:', error);
-  //     });
-     
-  // };
+ 
 
 
 
@@ -104,7 +90,7 @@ const AuthProvider = ({ children }) => {
    onAuthStateChanged(auth, (user) => {
      
         setUser(user);
-         setLoading(false);
+          setLoading(false);
     
     });
      return () => unsubscribe();
@@ -120,7 +106,7 @@ const AuthProvider = ({ children }) => {
     logOut,
     user,
      setUser,
-        //  loading
+      //  loading
 
   };
   return (

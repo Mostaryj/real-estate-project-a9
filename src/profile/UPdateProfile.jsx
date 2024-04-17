@@ -73,7 +73,7 @@ const UPdateProfile = () => {
   return (
     <div>
       <Nav></Nav>
-      <div className="mx-auto bg-cyan-100 w-[400px] h-[300px] p-4 border-2 mt-4 mb-4  rounded-xl border-sky-500 ">
+      <div className="mx-auto bg-cyan-100 md:w-[400px] h-[300px] p-4 border-2 mt-4 mb-4  rounded-xl border-sky-500 ">
         <h2 className=" text-3xl text-center">Update Profile</h2>
         <div className="flex flex-col mt-4 gap-2">
           <input

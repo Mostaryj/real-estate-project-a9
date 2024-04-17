@@ -18,7 +18,7 @@ if(loading){
     <div>
       <div className="max-w-6xl mx-auto">
         <Outlet></Outlet>
-      
+     
       </div>
       <div>
         <Footer></Footer>

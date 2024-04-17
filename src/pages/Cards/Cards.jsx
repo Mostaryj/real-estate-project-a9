@@ -3,7 +3,7 @@ import { MdLocationOn } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 const Cards = ({ card }) => {
-  const {id, image, estate_title, location, price, ratings, area, bedrooms } =
+  const {id, image, estate_title, location, price, ratings, area, bedrooms, status } =
     card;
   return (
     <div className="">
@@ -22,6 +22,7 @@ const Cards = ({ card }) => {
           </p>
           <p className="font-semibold">Bedrooms: {bedrooms}</p>
           <p className="font-semibold">Price: {price}</p>
+          <p className="font-semibold">Status: {status}</p>
           <div className="card-actions justify-end">
             <p className="font-semibold flex items-center gap-2">
               Ratings: {ratings}

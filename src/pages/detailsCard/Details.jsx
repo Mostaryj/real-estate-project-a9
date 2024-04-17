@@ -17,7 +17,7 @@ const Details = () => {
         <title>Luxury Retreats | Details</title>
       </Helmet>
       <Nav></Nav>
-      <h1 className="text-3xl font-bold font-pop text-center mt-6 text-cyan-600">
+      <h1 className="sm:text-3xl text-lg font-bold font-pop text-center mt-6 text-cyan-600">
         Details of: {card.estate_title}
       </h1>
 

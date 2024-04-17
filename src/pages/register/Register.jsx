@@ -54,7 +54,7 @@ const Register = () => {
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">Register</h1>
           </div>
-          <div className="card shrink-0 max-w-sm  shadow-2xl bg-base-100 w-[400px]">
+          <div className="card shrink-0 max-w-sm  shadow-2xl bg-base-100 md:w-[400px]">
             <form  onSubmit={handleSubmit(onSubmit)}
 
              className="card-body">
@@ -119,7 +119,7 @@ const Register = () => {
                 />
                 <span
                   onClick={() => setShow(!show)}
-                  className="absolute ml-72 mt-14"
+                  className="absolute ml-44 md:ml-72 mt-14"
                 >
                   {show ? <FaEyeSlash /> : <FaEye />}
                 </span>
