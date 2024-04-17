@@ -21,15 +21,15 @@ const Details = () => {
         Details of: {card.estate_title}
       </h1>
 
-      <div className="grid  rounded-md shadow-sm mt-6 gap-0 mb-6">
-        <div className="bg-sky-100 ">
+      <div className="grid  rounded-md shadow-sm mt-6 gap-0 mb-6  ">
+        <div className=" ">
           <img
             src={card.image}
             alt="Shoes"
-            className="w-full h-[400px]  rounded-l-md "
+            className="w-full h-[400px]  rounded-md animate__animated animate__bounceInDown"
           />
         </div>
-        <div className="p-8 bg-sky-100 rounded-r-md ">
+        <div className="p-8 bg-sky-100 rounded-md border-2 border-sky-500 mt-2 animate__animated animate__bounceInUp">
           <h3 className="text-2xl  font-pop font-semibold">
             Name: {card.estate_title}
           </h3>
