@@ -110,7 +110,7 @@ const Nav = () => {
               
               <button
                 onClick={logOut}
-                className="btn bg-gradient-to-r from-cyan-400 to-blue-500 text-white"
+                className="btn bg-cyan-500 text-white"
               >
                 LogOut
               </button>
@@ -120,7 +120,7 @@ const Nav = () => {
             
                <button
                 onClick={logOut}
-                className="btn bg-gradient-to-r from-cyan-400 to-blue-500 text-white"
+                className="btn bg-cyan-500 text-white"
               >
                 Login
               </button>

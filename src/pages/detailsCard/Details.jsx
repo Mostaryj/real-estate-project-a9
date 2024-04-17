@@ -26,10 +26,10 @@ const Details = () => {
           <img
             src={card.image}
             alt="Shoes"
-            className="w-full h-[400px]  rounded-md animate__animated animate__bounceInDown"
+            className="w-full h-[400px]  rounded-md "
           />
         </div>
-        <div className="p-8 bg-sky-100 rounded-md border-2 border-sky-500 mt-2 animate__animated animate__bounceInUp">
+        <div className="p-8 bg-sky-100 rounded-md border-2 border-sky-500 mt-2 ">
           <h3 className="text-2xl  font-pop font-semibold">
             Name: {card.estate_title}
           </h3>
