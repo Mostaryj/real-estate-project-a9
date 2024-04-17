@@ -73,7 +73,6 @@ const AuthProvider = ({ children }) => {
 
   
   const logOut = () =>{
-      setLoading(true);
       setUser(null);
    return signOut(auth)
    
@@ -89,7 +88,9 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = 
    onAuthStateChanged(auth, (user) => {
      
-        setUser(user);
+        if(user){
+          setUser(user);
+        }
           setLoading(false);
     
     });
@@ -106,7 +107,7 @@ const AuthProvider = ({ children }) => {
     logOut,
     user,
      setUser,
-      //  loading
+        loading
 
   };
   return (

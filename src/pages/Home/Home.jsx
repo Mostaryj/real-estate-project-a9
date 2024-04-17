@@ -22,10 +22,11 @@ const Home = () => {
         <title>Luxury Retreats | Home</title>
       </Helmet>
         <Nav></Nav>
+        <Slider></Slider>
         <Header></Header>
     
       <Banner></Banner>
-      <Slider></Slider>
+     
      
       
        
@@ -40,9 +41,9 @@ const Home = () => {
      }
         </div>
 
-    
+        <Leaflet></Leaflet>
 
-      <Leaflet></Leaflet>
+     
       
     
     
