@@ -32,15 +32,17 @@ const UPdateProfile = () => {
     if (photoURL) {
       profileUpdates.photoURL = photoURL;
     }
+ 
 
     updateProfile(user,  profileUpdates)
       .then(() => {
+       
         console.log("Profile updated successfully");
         toast.success("updated successfully");
 
         setUser({
              ...user,
-            displayName: name || user.displayName,
+             displayName: name || user.displayName,
             email: email || user.email,
             photoURL: photoURL || user.photoURL,
           });
@@ -54,6 +56,7 @@ const UPdateProfile = () => {
 
       });
   };
+
 
   const handleNameChange = (e) => {
     e.preventDefault();
@@ -88,6 +91,7 @@ const UPdateProfile = () => {
             className="w-full h-10 p-2  rounded-md border-2"
             type="email"
             placeholder="Update your email"
+            
             value={email}
             onChange={handleEmailChange}
           />

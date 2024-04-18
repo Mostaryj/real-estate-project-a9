@@ -33,7 +33,7 @@ const Nav = () => {
   );
   return (
     <div>
-      <div className="navbar bg-base-100 shadow-xl ">
+      <div className="navbar bg-base-100 border-b-2 ">
         <div className="navbar-start ">
           <div className="dropdown">
             <div

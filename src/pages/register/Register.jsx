@@ -10,16 +10,17 @@ import { FaEye } from "react-icons/fa";
 import { useState } from "react";
 
 import { toast } from "react-toastify";
+import { updateProfile } from "firebase/auth";
 // import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
-  const { createUser } = useAuth();
+  const { createUser, setUser } = useAuth();
   const [show, setShow] = useState(false);
 
   const navigate = useNavigate();
-    const location = useLocation();
+  const location = useLocation();
 
-    const from = location?.state || "/";
+  const from = location?.state || "/";
 
   const {
     register,
@@ -28,21 +29,53 @@ const Register = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    const { email, password } = data;
+    const { email, password, fullName, photoURL } = data;
+
     createUser(email, password)
-    .then((result) => {
-      console.log(result);
+      .then((result) => {
+        console.log(result);
+
+        toast.success("Registration successfully");      
+       
+        const profileUpdates = {};
+        if (fullName) {
+          profileUpdates.displayName = fullName;
+        }
+        if (email) {
+          profileUpdates.email = email;
+        }
+        if (photoURL) {
+          profileUpdates.photoURL = photoURL;
+        }
+
+        updateProfile(result.user, profileUpdates)
+          .then(() => {
+             console.log("Profile updated successfully");
+          
+          })
+          .catch((error) => {
+            console.error("Error updating profile", error);
+          });
+
+          setUser({
+            ...result.user,
+            displayName: fullName || result.user.displayName,
+           email: email || result.user.email,
+           photoURL: photoURL || result.user.photoURL,
+         });
+        navigate(from);
+          
       
-      toast.success("Registration successfully"); 
-      navigate(from);
-      
-    })
-    .catch(error => {
-      console.error(error);
-      toast.error("Registration failed. Please try again."); 
-    });
+
+
+      })
+
+      .catch((error) => {
+        console.error(error);
+        toast.error("Registration failed. Please try again.");
+      });
   };
- 
+
   return (
     <div>
       <Helmet>
@@ -55,16 +88,14 @@ const Register = () => {
             <h1 className="text-5xl font-bold">Register</h1>
           </div>
           <div className="card shrink-0 max-w-sm  shadow-2xl bg-base-100 md:w-[400px]">
-            <form  onSubmit={handleSubmit(onSubmit)}
-
-             className="card-body">
+            <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Name</span>
                 </label>
                 <input
                   type="text"
-                  name="name"
+                  name="fullName"
                   placeholder="name"
                   className="input input-bordered"
                   {...register("fullName", { required: true })}
@@ -99,7 +130,6 @@ const Register = () => {
                   className="input input-bordered"
                   {...register("photoURL")}
                 />
-               
               </div>
               <div className="form-control ">
                 <label className="label ">
@@ -114,14 +144,13 @@ const Register = () => {
                     required: true,
                     minLength: 6,
                     pattern: /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/,
-
                   })}
                 />
                 <span
                   onClick={() => setShow(!show)}
                   className="absolute ml-44 md:ml-72 mt-14"
                 >
-                  {show ? <FaEyeSlash /> : <FaEye />}
+                  {show ? <FaEye /> : <FaEyeSlash />}
                 </span>
                 {errors.password && (
                   <span className="text-red-500">
@@ -132,8 +161,9 @@ const Register = () => {
                 )}
               </div>
               <div className="form-control mt-6">
-                <button type="submit"
-                className="btn bg-gradient-to-r from-cyan-400 to-blue-500 text-white"
+                <button
+                  type="submit"
+                  className="btn bg-gradient-to-r from-cyan-400 to-blue-500 text-white"
                 >
                   Register Now
                 </button>

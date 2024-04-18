@@ -32,6 +32,7 @@ const Login = () => {
     const { email, password } = data;
     signInUser(email, password)
       .then((result) => {
+       
          toast.success("Login successful", result);
          navigate(from);
 
@@ -87,7 +88,7 @@ const Login = () => {
                   onClick={() => setShow(!show)}
                   className="absolute mt-14 ml-48 sm:ml-56"
                 >
-                  {show ? <FaEyeSlash /> : <FaEye />}
+                  {show ? <FaEye /> :  <FaEyeSlash />}
                 </span>
                 {errors.password && (
                   <span className="text-red-500">This field is required</span>
