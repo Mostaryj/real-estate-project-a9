@@ -14,7 +14,7 @@ import { updateProfile } from "firebase/auth";
 // import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
-  const { createUser, setUser } = useAuth();
+  const { createUser, setUser, user } = useAuth();
   const [show, setShow] = useState(false);
 
   const navigate = useNavigate();
@@ -35,39 +35,29 @@ const Register = () => {
       .then((result) => {
         console.log(result);
 
-        toast.success("Registration successfully");      
-       
-        const profileUpdates = {};
-        if (fullName) {
-          profileUpdates.displayName = fullName;
-        }
-        if (email) {
-          profileUpdates.email = email;
-        }
-        if (photoURL) {
-          profileUpdates.photoURL = photoURL;
-        }
+        toast.success("Registration successfully");
+
+        const profileUpdates = {
+          displayName: fullName,
+          photoURL: photoURL,
+        };
 
         updateProfile(result.user, profileUpdates)
           .then(() => {
-             console.log("Profile updated successfully");
-          
+            console.log("Profile updated successfully");
+            // toast.success("updated successfully");
+            setUser({
+              ...user,
+              displayName: fullName,
+              // email: email ,
+              photoURL: photoURL,
+            });
           })
           .catch((error) => {
             console.error("Error updating profile", error);
           });
 
-          setUser({
-            ...result.user,
-            displayName: fullName || result.user.displayName,
-           email: email || result.user.email,
-           photoURL: photoURL || result.user.photoURL,
-         });
         navigate(from);
-          
-      
-
-
       })
 
       .catch((error) => {

@@ -4,6 +4,7 @@ import Nav from "../pages/shared/Nav";
 import { updateProfile } from "firebase/auth";
 import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import auth from "../firebase/firebase.config";
 
 
 const UPdateProfile = () => {
@@ -34,29 +35,23 @@ const UPdateProfile = () => {
     }
  
 
-    updateProfile(user,  profileUpdates)
-      .then(() => {
-       
-        console.log("Profile updated successfully");
+      updateProfile(auth.currentUser, {
+        displayName: name,
+          photoURL: photoURL,
+      }).then(() => {
         toast.success("updated successfully");
-
         setUser({
-             ...user,
-             displayName: name || user.displayName,
-            email: email || user.email,
-            photoURL: photoURL || user.photoURL,
-          });
+          ...user,
+          displayName: name || user.displayName,
+         email: email || user.email,
+         photoURL: photoURL || user.photoURL,
+       });
 
-   
-      })
-
-      .catch((error) => {
+      }).catch((error) => {
         console.error("Error updating profile:", error);
-       
-
       });
   };
-
+console.log(user)
 
   const handleNameChange = (e) => {
     e.preventDefault();
@@ -91,7 +86,7 @@ const UPdateProfile = () => {
             className="w-full h-10 p-2  rounded-md border-2"
             type="email"
             placeholder="Update your email"
-            
+            readOnly
             value={email}
             onChange={handleEmailChange}
           />
