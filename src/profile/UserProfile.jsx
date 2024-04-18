@@ -14,7 +14,7 @@ const UserProfile = () => {
                     <h3 className="font-bold">User: {user?.displayName || "not found"}</h3>
                     <p className="font-bold">User Email:{user.email}</p>
                     <div className=" font-bold">
-                        <p>PhotoURL: <img className="w-[200px] h-[200px]" src={user?.photoURL || "not found"} alt="" /></p>
+                        <p>User Photo: <img className="w-[200px] h-[200px]" src={user?.photoURL || "not found"} alt="" /></p>
                     </div>
                 </div>
             }

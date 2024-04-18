@@ -26,7 +26,7 @@ const Details = () => {
           <img
             src={card.image}
             alt="Shoes"
-            className="w-full h-[400px]  rounded-md "
+            className="w-full object-cover  rounded-md "
           />
         </div>
         <div className="p-8 bg-sky-100 rounded-md border-2 border-sky-500 mt-2 ">
